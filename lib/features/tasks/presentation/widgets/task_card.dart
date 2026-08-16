@@ -58,6 +58,7 @@ class TaskCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _DoneCheckbox(
+                key: ValueKey('task-done-${task.id}'),
                 isDone: isDone,
                 enabled: canToggleDone,
                 onTap: canToggleDone ? onToggleDone : null,
@@ -221,6 +222,7 @@ class _AssigneeAvatar extends StatelessWidget {
 
 class _DoneCheckbox extends StatelessWidget {
   const _DoneCheckbox({
+    super.key,
     required this.isDone,
     required this.enabled,
     this.onTap,

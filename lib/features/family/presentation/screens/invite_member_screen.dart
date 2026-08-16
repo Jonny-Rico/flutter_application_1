@@ -110,6 +110,7 @@ class _InviteMemberScreenState extends ConsumerState<InviteMemberScreen> {
                   children: [
                     Text(
                       code,
+                      key: const ValueKey('invite-code'),
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
                         fontWeight: FontWeight.w800,
                         letterSpacing: 4,

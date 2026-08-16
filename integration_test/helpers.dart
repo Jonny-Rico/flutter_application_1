@@ -160,6 +160,23 @@ Future<void> ensureLoggedOut(WidgetTester tester) async {
   );
 }
 
+Future<void> hideKeyboard(WidgetTester tester) async {
+  FocusManager.instance.primaryFocus?.unfocus();
+  await tester.pump(const Duration(milliseconds: 400));
+}
+
+Future<void> openFamilySettled(WidgetTester tester) async {
+  await tapNavTab(tester, 'Family');
+  await waitForAny(tester, [
+    find.text('Join with code'),
+    find.text('Invite member'),
+    find.text('Leave group'),
+    find.text('Dissolve group'),
+    find.text('Verify email to use Family'),
+  ]);
+  await tester.pump(const Duration(seconds: 2));
+}
+
 Future<void> loginWithEmail(
   WidgetTester tester, {
   required String email,
