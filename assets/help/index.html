@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FamilyTasks Help</title>
+    <!-- Default language: English -->
+    <meta http-equiv="refresh" content="0; url=en/index.html" />
+    <link rel="stylesheet" href="assets/tutorial.css" />
+    <script>
+      // Prefer saved choice; default English
+      (function () {
+        try {
+          var lang = localStorage.getItem("ft_help_lang") || "en";
+          if (lang !== "en" && lang !== "ru") lang = "en";
+          location.replace(lang + "/index.html");
+        } catch (e) {
+          location.replace("en/index.html");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="main" style="padding-top: 48px">
+      <h1>FamilyTasks Help</h1>
+      <p class="lead">Choose language / Выберите язык:</p>
+      <div class="lang-switch" style="max-width: 280px">
+        <a class="active" href="en/index.html">English</a>
+        <a href="ru/index.html">Русский</a>
+      </div>
+      <p style="margin-top: 16px; color: var(--muted); font-size: 0.9rem">
+        If you are not redirected, open
+        <a href="en/index.html" style="color: var(--seed)">English</a>
+        or
+        <a href="ru/index.html" style="color: var(--seed)">Русский</a>.
+      </p>
+    </main>
+  </body>
+</html>

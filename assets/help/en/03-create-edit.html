@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3. Create &amp; edit — FamilyTasks Help</title>
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">FamilyTasks</div>
+      <div class="brand-sub">User guide · EN</div>
+      <div class="lang-switch">
+        <a class="active" href="03-create-edit.html" data-lang-switch="en">EN</a>
+        <a href="../ru/03-create-edit.html" data-lang-switch="ru">RU</a>
+      </div>
+      <nav>
+        <div class="nav-section">Start</div>
+        <a href="index.html">Home</a>
+        <a href="01-getting-started.html">1. Getting started</a>
+        <div class="nav-section">Features</div>
+        <a href="02-tasks.html">2. Tasks list</a>
+        <a class="active" href="03-create-edit.html">3. Create &amp; edit</a>
+        <a href="04-family.html">4. Family group</a>
+        <a href="05-dashboard.html">5. Dashboard</a>
+        <a href="06-settings.html">6. Settings</a>
+        <div class="nav-section">History</div>
+        <a href="07-whats-new.html">What’s new</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>3. Create &amp; edit tasks</h1>
+      <p class="lead">New task form, types, assignee, deadline, and reminders.</p>
+
+      <h2>Open the form</h2>
+      <div class="callout">
+        <div class="num">1</div>
+        <div class="body">
+          <strong>Tap the green <span class="ui-label">+</span> button</strong>
+          <span>Bottom-right on the Tasks screen.</span>
+        </div>
+      </div>
+
+      <h2>Required fields</h2>
+      <ul>
+        <li><span class="ui-label">Title *</span> — required; empty save shows an error snackbar</li>
+        <li><span class="ui-label">Description</span> — optional</li>
+        <li><span class="ui-label">Priority</span> — Lowest … Critical</li>
+        <li><span class="ui-label">Status</span> — To Do / In Progress / Done</li>
+        <li><span class="ui-label">Deadline</span> — optional date &amp; time</li>
+      </ul>
+
+      <h2>Personal vs Family</h2>
+      <p>If you are in a family group:</p>
+      <ul>
+        <li><span class="ui-label">Personal</span> — assign to a member (dropdown <span class="ui-label">Assign to</span>)</li>
+        <li><span class="ui-label">Family</span> — visible to everyone in the group (no single assignee)</li>
+      </ul>
+      <div class="tip">
+        <strong>Help under the toggle:</strong>
+        Family → “Family tasks are visible to everyone in your family.”
+        Personal → “Personal tasks are assigned to one person.”
+      </div>
+      <p>First time you assign a Personal task to someone else, a one-time tip explains they will see it under For me.</p>
+
+      <h2>Reminders</h2>
+      <p>On create/edit:</p>
+      <ul>
+        <li><span class="ui-label">No reminder</span></li>
+        <li><span class="ui-label">In 1 hour</span></li>
+        <li><span class="ui-label">In 1 day</span></li>
+      </ul>
+
+      <h2>Repeat</h2>
+      <ul>
+        <li><span class="ui-label">No repeat</span></li>
+        <li><span class="ui-label">Daily</span> — on Done, new copy with deadline +1 day</li>
+        <li><span class="ui-label">Weekly</span> — on Done, new copy with deadline +7 days</li>
+        <li><span class="ui-label">Monthly</span> — on Done, new copy with deadline +1 calendar month (day clamped to month end)</li>
+      </ul>
+      <p>Same title, assignee, priority, and Family/Personal type. New task status is To Do. Detail shows the repeat label. You can change or turn off repeat when editing.</p>
+      <div class="tip warn">
+        <strong>Note:</strong> If you Undo Done after a repeating task, the already-created next copy is not deleted.
+      </div>
+      <div class="tip warn">
+        <strong>Local only:</strong> Reminders fire on this device after you allow notifications.
+        Completing a task cancels its reminder.
+      </div>
+
+      <h2>Edit &amp; detail</h2>
+      <div class="callout">
+        <div class="num">2</div>
+        <div class="body">
+          <strong>Tap a task row</strong>
+          <span>Opens <span class="ui-label">Task details</span>.</span>
+        </div>
+      </div>
+      <ul>
+        <li>Pencil → edit (if you are the creator)</li>
+        <li>Quick status segments — changing to Done offers <span class="ui-label">Undo</span></li>
+        <li>Trash → delete with confirm (if allowed)</li>
+      </ul>
+      <div class="tip">
+        <strong>Permissions:</strong> Assignees can usually change status but not edit title/delete.
+        On task detail, if you cannot edit, you see:
+        <span class="ui-label">Only the creator can edit this task</span>.
+      </div>
+
+      <div class="pager">
+        <a href="02-tasks.html">← Tasks list</a>
+        <a href="04-family.html">Next: Family group →</a>
+      </div>
+    </main>
+    <script src="../assets/lang.js"></script>
+  </body>
+</html>

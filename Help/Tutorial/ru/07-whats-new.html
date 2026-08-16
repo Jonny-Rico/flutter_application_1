@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Что нового — FamilyTasks</title>
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">FamilyTasks</div>
+      <div class="brand-sub">Справка · RU</div>
+      <div class="lang-switch">
+        <a href="../en/07-whats-new.html" data-lang-switch="en">EN</a>
+        <a class="active" href="07-whats-new.html" data-lang-switch="ru">RU</a>
+      </div>
+      <nav>
+        <div class="nav-section">Старт</div>
+        <a href="index.html">Главная</a>
+        <a href="01-getting-started.html">1. Начало работы</a>
+        <div class="nav-section">Функции</div>
+        <a href="02-tasks.html">2. Список задач</a>
+        <a href="03-create-edit.html">3. Создание и правка</a>
+        <a href="04-family.html">4. Семья</a>
+        <a href="05-dashboard.html">5. Dashboard</a>
+        <a href="06-settings.html">6. Настройки</a>
+        <div class="nav-section">История</div>
+        <a class="active" href="07-whats-new.html">Что нового</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>Что нового (по итерациям)</h1>
+      <p class="lead">
+        Обновляйте эту страницу после каждой продуктовой итерации — и EN, и RU.
+      </p>
+
+      <ul class="iter-list">
+        <li><strong>1–4</strong> — Google-вход, CRUD задач, семья, invite, права, фильтры</li>
+        <li><strong>4.5+</strong> — компактный список, свайпы Done/Delete, память фильтров</li>
+        <li><strong>5</strong> — локальные reminders, алерты о новых задачах, тап по уведомлению → detail</li>
+        <li><strong>UI polish</strong> — Login и Tasks speed-list; pill-фильтры на всю ширину со счётчиками</li>
+        <li><strong>6</strong> — Dashboard; вкладки My / Family</li>
+        <li><strong>7</strong> — Reset filters, chip статуса в AppBar, Overdue, Undo Done</li>
+        <li><strong>8</strong> — тапы Dashboard → Tasks; snackbar при 0; сравнение недель; Busy; See all overdue</li>
+        <li><strong>9</strong> — инструменты списка (см. ниже)</li>
+        <li><strong>10</strong> — онбординг семьи + ясность (см. ниже)</li>
+        <li><strong>11</strong> — invite expiry/regenerate + weekly recurrence (см. ниже)</li>
+        <li><strong>12</strong> — Daily/Monthly, share family summary, skeletons, haptics, spacing (см. ниже)</li>
+        <li><strong>13</strong> — Email register / sign-in / reset + имя (см. ниже)</li>
+        <li><strong>14</strong> — жёсткая проверка email для Family (см. ниже)</li>
+        <li><strong>15</strong> — связь Google ↔ email на одном аккаунте (см. ниже)</li>
+        <li><strong>16</strong> — правка имени в Settings</li>
+      </ul>
+
+      <h2 id="iter-15">Итерация 15 — подробно</h2>
+      <ul>
+        <li>Settings → Sign-in methods</li>
+        <li>Email: Link Google</li>
+        <li>Google: Add email and password</li>
+        <li>Тот же uid; чужие уже занятые аккаунты не сливаются</li>
+      </ul>
+
+      <h2 id="iter-14">Итерация 14 — подробно</h2>
+      <ul>
+        <li>Письмо verification после Create account</li>
+        <li>Create/join семьи заблокированы, пока не открыта ссылка</li>
+        <li>Settings / Family: Resend + I have verified</li>
+        <li>Личные задачи доступны сразу</li>
+      </ul>
+
+      <h2 id="iter-13">Итерация 13 — подробно</h2>
+      <ul>
+        <li><strong>Email</strong> — Create account (имя, email, пароль ≥ 8) или Sign in with email</li>
+        <li><strong>Forgot password</strong> — письмо со ссылкой от Firebase</li>
+        <li><strong>Google</strong> — по-прежнему доступен; одна семья для обоих типов</li>
+        <li><strong>Дальше</strong> — link Google ↔ email (15)</li>
+      </ul>
+
+      <h2 id="iter-12">Итерация 12 — подробно</h2>
+      <ul>
+        <li><strong>Repeat</strong> — No repeat / Daily / Weekly / Monthly; следующая копия после Done</li>
+        <li><strong>Share family summary</strong> — кнопка на Family Dashboard → системный share</li>
+        <li><strong>Skeletons</strong> — плейсхолдеры при загрузке Tasks и Dashboard</li>
+        <li><strong>Haptics</strong> — лёгкая вибрация на Done; средняя на Delete</li>
+        <li><strong>Spacing / contrast</strong> — единый ритм секций; overdue red чуть ярче</li>
+        <li><strong>Login</strong> — Aurora Home (вариант K), крупный лого по центру</li>
+        <li><strong>App lock</strong> — PIN + биометрия (Settings); lock при открытии / фоне</li>
+      </ul>
+
+      <h2 id="iter-11">Итерация 11 — подробно</h2>
+      <ul>
+        <li><strong>Invite TTL</strong> — код 7 дней; expired join отклоняется</li>
+        <li><strong>Regenerate</strong> — новый код отзывает старые pending; UI показывает expires</li>
+        <li><strong>Weekly</strong> — в форме No repeat / Weekly; после Done — копия с deadline +7 дней</li>
+        <li><strong>Detail</strong> — «Weekly — next copy after Done»</li>
+      </ul>
+
+      <h2 id="iter-10">Итерация 10 — подробно</h2>
+      <ul>
+        <li><strong>После create group</strong> — разовый диалог: Invite member / Not now</li>
+        <li><strong>После join</strong> — welcome: OK / Go to Tasks / Create task</li>
+        <li><strong>Первое назначение другому</strong> — tip: увидят во For me</li>
+        <li><strong>Форма задачи</strong> — подсказка под Personal/Family</li>
+        <li><strong>Детали задачи</strong> — баннер, если нельзя edit (only creator)</li>
+      </ul>
+      <p>См. также <a href="04-family.html" style="color:var(--seed);font-weight:700">4. Семья</a> и
+        <a href="03-create-edit.html" style="color:var(--seed);font-weight:700">3. Создание и правка</a>.</p>
+
+      <h2 id="iter-9">Итерация 9 — подробно</h2>
+      <p>Полное описание:
+        <a href="02-tasks.html" style="color:var(--seed);font-weight:700">2. Список задач</a>.</p>
+      <ul>
+        <li><strong>Сортировка</strong> — overdue → ближайший deadline → выше priority → недавно обновлённые</li>
+        <li><strong>Поиск</strong> — 🔍 в AppBar; title + description; clear / close; «No matches»</li>
+        <li><strong>Long-press</strong> — sheet: Mark done (с Undo), Edit, Delete (по правам)</li>
+        <li><strong>Аватар assignee</strong> — буква/фото на personal; метка <span class="ui-label">Family</span> на family-задачах</li>
+      </ul>
+
+      <div class="tip">
+        <strong>Для авторов:</strong> после итерации добавьте пункт сюда и расширьте нужную главу (EN + RU).
+      </div>
+
+      <div class="pager">
+        <a href="06-settings.html">← Настройки</a>
+        <a href="index.html">На главную →</a>
+      </div>
+    </main>
+    <script src="../assets/lang.js"></script>
+  </body>
+</html>

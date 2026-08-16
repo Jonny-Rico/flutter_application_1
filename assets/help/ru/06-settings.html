@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>6. Настройки — FamilyTasks</title>
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">FamilyTasks</div>
+      <div class="brand-sub">Справка · RU</div>
+      <div class="lang-switch">
+        <a href="../en/06-settings.html" data-lang-switch="en">EN</a>
+        <a class="active" href="06-settings.html" data-lang-switch="ru">RU</a>
+      </div>
+      <nav>
+        <div class="nav-section">Старт</div>
+        <a href="index.html">Главная</a>
+        <a href="01-getting-started.html">1. Начало работы</a>
+        <div class="nav-section">Функции</div>
+        <a href="02-tasks.html">2. Список задач</a>
+        <a href="03-create-edit.html">3. Создание и правка</a>
+        <a href="04-family.html">4. Семья</a>
+        <a href="05-dashboard.html">5. Dashboard</a>
+        <a class="active" href="06-settings.html">6. Настройки</a>
+        <div class="nav-section">История</div>
+        <a href="07-whats-new.html">Что нового</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>6. Настройки и уведомления</h1>
+      <p class="lead">Профиль, память фильтров, локальные уведомления, выход.</p>
+
+      <h2>Профиль</h2>
+      <p>Имя, email и фото (если есть). Карандаш — сменить имя (минимум 2 символа).
+        Обновляется Auth, профиль и список участников семьи.</p>
+
+      <h2>Remember task filters</h2>
+      <ul>
+        <li><strong>Вкл.</strong> — сохраняет view + status; часто For me + To Do</li>
+        <li><strong>Выкл.</strong> — при входе All + All statuses</li>
+      </ul>
+
+      <h2>Haptic feedback</h2>
+      <ul>
+        <li><strong>Вкл.</strong> (по умолчанию) — лёгкая вибрация на Done; средняя на Delete</li>
+        <li><strong>Выкл.</strong> — без вибрации для этих действий</li>
+      </ul>
+      <p>Сохраняется на аккаунт. При включении — короткий импульс для проверки.</p>
+
+      <h2>App lock</h2>
+      <ul>
+        <li><strong>Вкл.</strong> — 4-значный PIN; опционально биометрия</li>
+        <li>Разблокировка при открытии приложения и после ухода в фон</li>
+        <li><span class="ui-label">Unlock with biometrics</span> — выкл. = только PIN</li>
+        <li><span class="ui-label">Change PIN</span> — сначала подтверждение</li>
+        <li>Выключение lock — biometrics или PIN</li>
+      </ul>
+      <p>Google sign-in не меняется. App lock защищает доступ на этом устройстве.</p>
+
+      <h2>Notify about new tasks</h2>
+      <div class="callout">
+        <div class="num">1</div>
+        <div class="body">
+          <strong>Включите переключатель</strong>
+          <span>Может запросить системное разрешение на уведомления.</span>
+        </div>
+      </div>
+      <div class="tip warn">
+        <strong>Локальные алерты:</strong> о новой задаче — после синхронизации на этом устройстве
+        (открытие / логин приложения). Это не полноценный серверный push, пока приложение никогда не запускалось.
+      </div>
+      <p>Чужая Family-задача или Personal «на вас» →
+        <span class="ui-label">New task for you</span> /
+        <span class="ui-label">New family task</span>. Тап открывает детали.</p>
+
+      <h2>Sign-in methods</h2>
+      <p>Один аккаунт может использовать и Google, и email (тот же uid).</p>
+      <ul>
+        <li><span class="ui-label">Link</span> у Google — привязать Google (если регистрировались по email)</li>
+        <li><span class="ui-label">Add</span> у Email and password — задать email + пароль (если входили через Google)</li>
+      </ul>
+      <p>Если этот Google/email уже у другого пользователя FamilyTasks — связать нельзя. Войдите тем аккаунтом.</p>
+
+      <h2>Notification permission</h2>
+      <p>Отдельный пункт — снова запросить разрешение Android.</p>
+
+      <h2>Help</h2>
+      <p>Открывает это руководство внутри приложения (EN / RU). Работает офлайн.</p>
+
+      <h2>Напоминания</h2>
+      <p>В форме задачи: In 1 hour / In 1 day — локальное расписание.</p>
+
+      <h2>Выход</h2>
+      <div class="callout">
+        <div class="num">2</div>
+        <div class="body">
+          <strong>Нажмите <span class="ui-label">Sign out</span></strong>
+          <span>Возврат на экран входа.</span>
+        </div>
+      </div>
+
+      <div class="pager">
+        <a href="05-dashboard.html">← Dashboard</a>
+        <a href="07-whats-new.html">Далее: Что нового →</a>
+      </div>
+    </main>
+    <script src="../assets/lang.js"></script>
+  </body>
+</html>

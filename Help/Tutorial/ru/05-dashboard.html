@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5. Dashboard — FamilyTasks</title>
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">FamilyTasks</div>
+      <div class="brand-sub">Справка · RU</div>
+      <div class="lang-switch">
+        <a href="../en/05-dashboard.html" data-lang-switch="en">EN</a>
+        <a class="active" href="05-dashboard.html" data-lang-switch="ru">RU</a>
+      </div>
+      <nav>
+        <div class="nav-section">Старт</div>
+        <a href="index.html">Главная</a>
+        <a href="01-getting-started.html">1. Начало работы</a>
+        <div class="nav-section">Функции</div>
+        <a href="02-tasks.html">2. Список задач</a>
+        <a href="03-create-edit.html">3. Создание и правка</a>
+        <a href="04-family.html">4. Семья</a>
+        <a class="active" href="05-dashboard.html">5. Dashboard</a>
+        <a href="06-settings.html">6. Настройки</a>
+        <div class="nav-section">История</div>
+        <a href="07-whats-new.html">Что нового</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>5. Dashboard</h1>
+      <p class="lead">Аналитика по вам и семье. Цифры ведут в Tasks.</p>
+
+      <h2>Вкладки My и Family</h2>
+      <ul>
+        <li><span class="ui-label">My</span> — ваши личные задачи (вам / от вас)</li>
+        <li><span class="ui-label">Family</span> — общие семейные (нужна группа)</li>
+      </ul>
+
+      <h2>Плитки Overview</h2>
+      <p>Четыре плитки: <span class="ui-label">Total</span>, <span class="ui-label">Open</span>,
+        <span class="ui-label">Done</span>, <span class="ui-label">Overdue</span>.</p>
+
+      <div class="callout">
+        <div class="num">1</div>
+        <div class="body">
+          <strong>Счётчик &gt; 0</strong>
+          <span>Тап → <span class="ui-label">Tasks</span> с подходящими фильтрами для этой вкладки.</span>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="num">2</div>
+        <div class="body">
+          <strong>Счётчик = 0</strong>
+          <span>Только snackbar, например <span class="ui-label">No overdue tasks yet</span> — Tasks не открывается.</span>
+        </div>
+      </div>
+
+      <div class="figure">
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>●●●</span></div>
+          <div class="appbar">Dashboard</div>
+          <div style="display:flex;gap:12px;padding:0 12px 10px;font-size:0.7rem;font-weight:700">
+            <span style="color:var(--seed);border-bottom:2px solid var(--seed);padding-bottom:4px">My</span>
+            <span style="color:#94a3b8">Family</span>
+          </div>
+          <div class="grid2">
+            <div class="tile"><div class="v">4</div><div class="l">Total</div></div>
+            <div class="tile" style="outline:2px solid var(--seed);position:relative">
+              <div class="tap-marker" style="right:4px;top:4px">1</div>
+              <div class="v">1</div><div class="l">Open</div>
+            </div>
+            <div class="tile"><div class="v">3</div><div class="l">Done</div></div>
+            <div class="tile"><div class="v">0</div><div class="l">Overdue</div></div>
+          </div>
+          <div class="bnav" style="margin-top:40px">
+            <span>Tasks</span><span>Family</span><span class="on">Dashboard</span><span>Settings</span>
+          </div>
+        </div>
+        <p class="figure-caption">Рис. Dashboard My — тап по плитке со счётчиком &gt; 0 (маркер 1).</p>
+      </div>
+
+      <h2>Другие тапы</h2>
+      <ul>
+        <li><strong>Completion</strong> → Tasks (тот же scope вкладки)</li>
+        <li><strong>By status</strong> → этот статус на Tasks</li>
+        <li><strong>For me / By me</strong> → соответствующие view-фильтры</li>
+        <li><strong>Family progress</strong> → семейные задачи</li>
+        <li><strong>See all N overdue</strong> → все просроченные</li>
+        <li>Строка overdue → детали задачи</li>
+      </ul>
+
+      <div class="tip">
+        <strong>Сброс «режима Dashboard»:</strong> на Tasks смена view-pill или status-menu
+        убирает специальный фильтр с дашборда — снова обычные фильтры.
+      </div>
+
+      <h2>Сравнение недель</h2>
+      <p>Под completion: например
+        <span class="ui-label">Done this week: 5 (↑2 vs last week)</span>
+        (неделя с понедельника).</p>
+
+      <h2>Member activity (Family)</h2>
+      <p>Open / Done / Created по участникам. Если open ≥ 3 — badge
+        <span class="ui-label">Busy</span>.</p>
+
+      <h2>Share family summary (итерация 12)</h2>
+      <p>На вкладке <span class="ui-label">Family</span> кнопка
+        <span class="ui-label">Share family summary</span> открывает системный share с текстом вида
+        <span class="ui-label">Family closed 12/15 tasks · 2 overdue</span>.</p>
+
+      <div class="pager">
+        <a href="04-family.html">← Семья</a>
+        <a href="06-settings.html">Далее: Настройки →</a>
+      </div>
+    </main>
+    <script src="../assets/lang.js"></script>
+  </body>
+</html>

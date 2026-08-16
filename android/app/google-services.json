@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1032766714354",
+    "project_id": "family-tasks-635b4",
+    "storage_bucket": "family-tasks-635b4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032766714354:android:1a532db8d6b8dc3b273b6b",
+        "android_client_info": {
+          "package_name": "com.familytasks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032766714354-n74br4ccv9ttut4t3k92jj7152j6nri3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.familytasks",
+            "certificate_hash": "b2b793399499a4fd4db0965b67a99472653c7f81"
+          }
+        },
+        {
+          "client_id": "1032766714354-ipi8pnmkftd9q371ir9fb6tggr4olllq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPLehbAMS51G9ert17gkbjZhZx79Huv6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032766714354-ipi8pnmkftd9q371ir9fb6tggr4olllq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

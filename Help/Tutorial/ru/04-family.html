@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>4. Семья — FamilyTasks</title>
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">FamilyTasks</div>
+      <div class="brand-sub">Справка · RU</div>
+      <div class="lang-switch">
+        <a href="../en/04-family.html" data-lang-switch="en">EN</a>
+        <a class="active" href="04-family.html" data-lang-switch="ru">RU</a>
+      </div>
+      <nav>
+        <div class="nav-section">Старт</div>
+        <a href="index.html">Главная</a>
+        <a href="01-getting-started.html">1. Начало работы</a>
+        <div class="nav-section">Функции</div>
+        <a href="02-tasks.html">2. Список задач</a>
+        <a href="03-create-edit.html">3. Создание и правка</a>
+        <a class="active" href="04-family.html">4. Семья</a>
+        <a href="05-dashboard.html">5. Dashboard</a>
+        <a href="06-settings.html">6. Настройки</a>
+        <div class="nav-section">История</div>
+        <a href="07-whats-new.html">Что нового</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>4. Семейная группа</h1>
+      <p class="lead">Создание группы, invite-код, назначение задач.</p>
+
+      <div class="tip warn">
+        <strong>Email-аккаунт:</strong> создать или вступить в семью можно только после ссылки
+        в письме и кнопки <span class="ui-label">I have verified</span>. Google обычно уже verified.
+        Личные задачи работают без подтверждения.
+      </div>
+
+      <h2>Открыть Family</h2>
+      <div class="callout">
+        <div class="num">1</div>
+        <div class="body">
+          <strong>Нижнее меню → <span class="ui-label">Family</span></strong>
+          <span>Заголовок экрана: Family Group.</span>
+        </div>
+      </div>
+
+      <h2>Создать группу (owner)</h2>
+      <ol>
+        <li>Если группы нет — создайте и укажите имя.</li>
+        <li>Вы становитесь владельцем (owner).</li>
+        <li>Счётчик участников, например 1/10.</li>
+      </ol>
+
+      <h2>Пригласить</h2>
+      <div class="callout">
+        <div class="num">2</div>
+        <div class="body">
+          <strong>Иконка приглашения</strong>
+          <span>Справа вверху (только owner) → экран с invite-кодом.</span>
+        </div>
+      </div>
+      <p>Передайте код другому пользователю с Google и приложением.</p>
+      <ul>
+        <li>Код <strong>истекает через 7 дней</strong> (дата под кодом)</li>
+        <li><span class="ui-label">Regenerate code</span> создаёт новый и <strong>отзывает</strong> предыдущий pending</li>
+        <li>Истёкший или отозванный код для join не подходит</li>
+      </ul>
+
+      <h2>Вступить по коду</h2>
+      <div class="callout">
+        <div class="num">3</div>
+        <div class="body">
+          <strong>На втором аккаунте: Family → join</strong>
+          <span>Введите код. Неверный или expired — ошибка.</span>
+        </div>
+      </div>
+
+      <h2>Участники</h2>
+      <ul>
+        <li>Owner может удалять участников</li>
+        <li>Member может выйти из группы</li>
+        <li>Owner может распустить группу</li>
+      </ul>
+
+      <h2>Связь с задачами</h2>
+      <ul>
+        <li><strong>Personal + Assign to</strong> — у другого появится во <span class="ui-label">For me</span></li>
+        <li><strong>Family</strong> — видят все в группе</li>
+        <li>Вкладки For me / By me / Family на Tasks — только если вы в группе</li>
+      </ul>
+
+      <h2>Онбординг (итерация 10)</h2>
+      <div class="callout">
+        <div class="num">4</div>
+        <div class="body">
+          <strong>После создания группы</strong>
+          <span>Разовый диалог: <span class="ui-label">Invite member</span> или <span class="ui-label">Not now</span>. Один раз на аккаунт.</span>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="num">5</div>
+        <div class="body">
+          <strong>После join по коду</strong>
+          <span>Welcome: смотрите <span class="ui-label">For me</span>, или Go to Tasks / Create task.</span>
+        </div>
+      </div>
+      <p>При первом назначении Personal-задачи другому — tip: они увидят её во For me.</p>
+
+      <div class="tip">
+        <strong>Совет:</strong> для проверки удобны два Google-аккаунта (или два эмулятора).
+      </div>
+
+      <div class="pager">
+        <a href="03-create-edit.html">← Создание и правка</a>
+        <a href="05-dashboard.html">Далее: Dashboard →</a>
+      </div>
+    </main>
+    <script src="../assets/lang.js"></script>
+  </body>
+</html>

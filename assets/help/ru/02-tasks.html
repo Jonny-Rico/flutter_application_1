@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2. Список задач — FamilyTasks</title>
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">FamilyTasks</div>
+      <div class="brand-sub">Справка · RU</div>
+      <div class="lang-switch">
+        <a href="../en/02-tasks.html" data-lang-switch="en">EN</a>
+        <a class="active" href="02-tasks.html" data-lang-switch="ru">RU</a>
+      </div>
+      <nav>
+        <div class="nav-section">Старт</div>
+        <a href="index.html">Главная</a>
+        <a href="01-getting-started.html">1. Начало работы</a>
+        <div class="nav-section">Функции</div>
+        <a class="active" href="02-tasks.html">2. Список задач</a>
+        <a href="03-create-edit.html">3. Создание и правка</a>
+        <a href="04-family.html">4. Семья</a>
+        <a href="05-dashboard.html">5. Dashboard</a>
+        <a href="06-settings.html">6. Настройки</a>
+        <div class="nav-section">История</div>
+        <a href="07-whats-new.html">Что нового</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>2. Список задач</h1>
+      <p class="lead">
+        Просмотр, фильтры, поиск, выполнение и удаление. Включает инструменты итерации 9:
+        сортировка, поиск, long-press, аватары assignee.
+      </p>
+
+      <h2>Фильтры вида (если есть семья)</h2>
+      <p>Четыре равные кнопки сверху:</p>
+      <ul>
+        <li><span class="ui-label">For me</span> — назначены вам</li>
+        <li><span class="ui-label">By me</span> — вы назначили другому</li>
+        <li><span class="ui-label">Family</span> — общие семейные задачи</li>
+        <li><span class="ui-label">All</span> — все</li>
+      </ul>
+      <p>Цифра в кружке — количество задач в этой вкладке.</p>
+
+      <h2>Фильтр статуса</h2>
+      <div class="callout">
+        <div class="num">1</div>
+        <div class="body">
+          <strong>Нажмите chip в AppBar</strong>
+          <span>Например <span class="ui-label">To Do ▾</span> или <span class="ui-label">All statuses ▾</span>.
+            После тапов с Dashboard также бывают <span class="ui-label">Open</span> / <span class="ui-label">Overdue</span>.</span>
+        </div>
+      </div>
+      <p>Выберите To Do, In Progress, Done или All statuses.</p>
+
+      <h2>Поиск (итерация 9)</h2>
+      <div class="callout">
+        <div class="num">2</div>
+        <div class="body">
+          <strong>Иконка поиска (🔍) в AppBar</strong>
+          <span>Под заголовком появляется поле: поиск по <strong>title</strong> и <strong>description</strong>.</span>
+        </div>
+      </div>
+      <ul>
+        <li>Очистить текст — <span class="ui-label">×</span> в поле</li>
+        <li>Закрыть поиск — иконка закрытия в AppBar (запрос сбрасывается)</li>
+        <li>Нет совпадений → <span class="ui-label">No matches</span> + <span class="ui-label">Clear search</span></li>
+      </ul>
+
+      <div class="figure">
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>●●●</span></div>
+          <div class="appbar">
+            <div class="appbar-row">
+              <span>Tasks</span>
+              <span style="display:flex;gap:6px;align-items:center">
+                <span style="position:relative">
+                  <span style="font-size:0.9rem">🔍</span>
+                  <div class="tap-marker" style="right:-10px;top:-10px">2</div>
+                </span>
+                <span class="chip">To Do ▾</span>
+              </span>
+            </div>
+          </div>
+          <div style="margin:0 10px 8px;padding:8px 10px;border-radius:10px;background:#1e2733;border:1px solid rgba(148,163,184,0.2);font-size:0.65rem;color:#94a3b8">
+            Search title or description
+          </div>
+          <div class="tabs">
+            <div class="tab on">For me <span class="badge">2</span></div>
+            <div class="tab">By me</div>
+            <div class="tab">Family</div>
+            <div class="tab">All</div>
+          </div>
+          <div class="row">
+            <div class="check"></div>
+            <div>
+              <div class="t">Buy milk</div>
+              <div class="m">Jul 20</div>
+            </div>
+          </div>
+          <div class="bnav">
+            <span class="on">Tasks</span><span>Family</span><span>Dashboard</span><span>Settings</span>
+          </div>
+        </div>
+        <p class="figure-caption">Рис. Поиск открыт под AppBar (маркер 2).</p>
+      </div>
+
+      <h2>Завершить задачу</h2>
+      <div class="callout">
+        <div class="num">3</div>
+        <div class="body">
+          <strong>Checkbox</strong>
+          <span>Тап по кружку слева в строке.</span>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="num">4</div>
+        <div class="body">
+          <strong>Свайп вправо</strong>
+          <span>Зелёная зона «Done».</span>
+        </div>
+      </div>
+      <div class="tip">
+        <strong>Undo:</strong> после Done — snackbar
+        <span class="ui-label">Task marked as done</span> и кнопка
+        <span class="ui-label">Undo</span> (~5 сек).
+        Напоминание после Undo не восстанавливается.
+      </div>
+
+      <h2>Long-press меню (итерация 9)</h2>
+      <div class="callout">
+        <div class="num">5</div>
+        <div class="body">
+          <strong>Удержите строку задачи</strong>
+          <span>Снизу откроется sheet с доступными вам действиями.</span>
+        </div>
+      </div>
+      <ul>
+        <li><span class="ui-label">Mark done</span> — если можно менять статус (и задача ещё не Done); с Undo</li>
+        <li><span class="ui-label">Edit</span> — если можно редактировать (обычно создатель)</li>
+        <li><span class="ui-label">Delete</span> — если можно удалять; с подтверждением</li>
+      </ul>
+      <p>Если действий нет — короткий snackbar.</p>
+
+      <div class="figure">
+        <div class="phone" style="min-height: 320px">
+          <div class="status"><span>9:41</span><span>●●●</span></div>
+          <div class="appbar">Tasks</div>
+          <div class="row hot" style="position:relative;margin-top:8px">
+            <div class="tap-marker" style="right:8px;top:8px">5</div>
+            <div class="check"></div>
+            <div style="flex:1">
+              <div class="t">Pay the bill</div>
+              <div class="m">Jul 20</div>
+            </div>
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(94,234,212,0.2);font-size:0.55rem;font-weight:800;color:var(--seed);display:grid;place-items:center">A</div>
+          </div>
+          <div style="position:absolute;left:8px;right:8px;bottom:48px;background:#1a222d;border-radius:14px 14px 0 0;border:1px solid rgba(148,163,184,0.2);padding:10px 8px 12px;font-size:0.65rem">
+            <div style="font-weight:800;margin-bottom:8px;padding:0 6px">Pay the bill</div>
+            <div style="padding:8px 6px;border-top:1px solid rgba(148,163,184,0.12)">✓ Mark done</div>
+            <div style="padding:8px 6px;border-top:1px solid rgba(148,163,184,0.12)">✎ Edit</div>
+            <div style="padding:8px 6px;border-top:1px solid rgba(148,163,184,0.12);color:#f87171">🗑 Delete</div>
+          </div>
+          <div class="bnav">
+            <span class="on">Tasks</span><span>Family</span><span>Dashboard</span><span>Settings</span>
+          </div>
+        </div>
+        <p class="figure-caption">Рис. Long-press: Mark done / Edit / Delete (маркер 5). Справа аватар «A».</p>
+      </div>
+
+      <h2>Удаление (свайп)</h2>
+      <p>Свайп влево → диалог подтверждения. Обычно только создатель. То же, что Delete в long-press.</p>
+
+      <h2>Сортировка (итерация 9)</h2>
+      <p>Список всегда сортируется автоматически (настройки нет):</p>
+      <ol>
+        <li>Сначала <strong>Overdue</strong> (открытые просроченные)</li>
+        <li>Затем <strong>ближайший deadline</strong> (без даты — ниже)</li>
+        <li>Затем <strong>выше priority</strong> (Critical выше Low)</li>
+        <li>Затем <strong>недавно обновлённые</strong></li>
+      </ol>
+
+      <h2>Бейдж Overdue</h2>
+      <p>Открытые задачи с прошедшим дедлайном: красная дата и pill
+        <span class="ui-label">Overdue</span>. У Done overdue не показывается.</p>
+
+      <h2>Аватар assignee (итерация 9)</h2>
+      <ul>
+        <li><strong>Personal</strong> — кружок с буквой имени (или фото, если есть)</li>
+        <li><strong>Family</strong> — метка <span class="ui-label">Family</span> вместо аватара</li>
+      </ul>
+
+      <div class="figure">
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>●●●</span></div>
+          <div class="appbar">
+            <div class="appbar-row">
+              <span>Tasks</span>
+              <span class="chip">To Do ▾</span>
+            </div>
+          </div>
+          <div class="tabs">
+            <div class="tab on">For me <span class="badge">3</span></div>
+            <div class="tab">By me</div>
+            <div class="tab">Family</div>
+            <div class="tab">All</div>
+          </div>
+          <div class="row hot">
+            <div class="tap-marker" style="left: 4px; top: 4px">3</div>
+            <div class="check"></div>
+            <div style="flex:1">
+              <div class="t">Buy groceries</div>
+              <div class="m od">Jul 14 <span class="overdue-pill">Overdue</span></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="check"></div>
+            <div style="flex:1">
+              <div class="t">Pay the bill</div>
+              <div class="m">Jul 20</div>
+            </div>
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(94,234,212,0.2);font-size:0.55rem;font-weight:800;color:var(--seed);display:grid;place-items:center">Y</div>
+          </div>
+          <div class="row">
+            <div class="check"></div>
+            <div style="flex:1">
+              <div class="t">Clean kitchen</div>
+              <div class="m" style="color:var(--seed);font-weight:700">Family</div>
+            </div>
+          </div>
+          <div class="fab">+</div>
+          <div class="bnav">
+            <span class="on">Tasks</span><span>Family</span><span>Dashboard</span><span>Settings</span>
+          </div>
+        </div>
+        <p class="figure-caption">Рис. Overdue, аватар «Y», метка Family.</p>
+      </div>
+
+      <h2>Пустой список</h2>
+      <ul>
+        <li><strong>Задач нет совсем</strong> → кнопка <span class="ui-label">New task</span></li>
+        <li><strong>Фильтры всё скрыли</strong> → сначала
+          <span class="ui-label">Reset filters</span>, затем New task</li>
+        <li><strong>Поиск ничего не нашёл</strong> → <span class="ui-label">No matches</span> + Clear search</li>
+      </ul>
+      <p>Reset: при «Remember filters» вкл. → For me + To Do; выкл. → All + All statuses.
+        Также сбрасывает поиск и временные фильтры с Dashboard.</p>
+
+      <h2>Полоса прокрутки</h2>
+      <p>При длинном списке справа виден scrollbar на всех вкладках.</p>
+
+      <div class="pager">
+        <a href="01-getting-started.html">← Начало работы</a>
+        <a href="03-create-edit.html">Далее: Создание и правка →</a>
+      </div>
+    </main>
+    <script src="../assets/lang.js"></script>
+  </body>
+</html>

@@ -43,3 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Local QA secrets (test account passwords)
+QA/*.local.md
+QA/_*.js

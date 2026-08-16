@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3. Создание и правка — FamilyTasks</title>
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">FamilyTasks</div>
+      <div class="brand-sub">Справка · RU</div>
+      <div class="lang-switch">
+        <a href="../en/03-create-edit.html" data-lang-switch="en">EN</a>
+        <a class="active" href="03-create-edit.html" data-lang-switch="ru">RU</a>
+      </div>
+      <nav>
+        <div class="nav-section">Старт</div>
+        <a href="index.html">Главная</a>
+        <a href="01-getting-started.html">1. Начало работы</a>
+        <div class="nav-section">Функции</div>
+        <a href="02-tasks.html">2. Список задач</a>
+        <a class="active" href="03-create-edit.html">3. Создание и правка</a>
+        <a href="04-family.html">4. Семья</a>
+        <a href="05-dashboard.html">5. Dashboard</a>
+        <a href="06-settings.html">6. Настройки</a>
+        <div class="nav-section">История</div>
+        <a href="07-whats-new.html">Что нового</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>3. Создание и правка задач</h1>
+      <p class="lead">Форма новой задачи, типы, исполнитель, дедлайн, напоминания.</p>
+
+      <h2>Открыть форму</h2>
+      <div class="callout">
+        <div class="num">1</div>
+        <div class="body">
+          <strong>Нажмите зелёную кнопку <span class="ui-label">+</span></strong>
+          <span>Справа внизу на экране Tasks.</span>
+        </div>
+      </div>
+
+      <h2>Поля</h2>
+      <ul>
+        <li><span class="ui-label">Title *</span> — обязательно</li>
+        <li><span class="ui-label">Description</span> — по желанию</li>
+        <li><span class="ui-label">Priority</span> — Lowest … Critical</li>
+        <li><span class="ui-label">Status</span> — To Do / In Progress / Done</li>
+        <li><span class="ui-label">Deadline</span> — дата и время, опционально</li>
+      </ul>
+
+      <h2>Personal и Family</h2>
+      <p>Если вы в семейной группе:</p>
+      <ul>
+        <li><span class="ui-label">Personal</span> — можно назначить участнику (<span class="ui-label">Assign to</span>)</li>
+        <li><span class="ui-label">Family</span> — видят все в семье (без одного assignee)</li>
+      </ul>
+      <div class="tip">
+        <strong>Подсказка под переключателем:</strong>
+        Family — «видны всей семье»; Personal — «назначена одному человеку».
+      </div>
+      <p>При первом назначении другому — разовый tip: они увидят задачу во For me.</p>
+
+      <h2>Напоминания</h2>
+      <ul>
+        <li><span class="ui-label">No reminder</span></li>
+        <li><span class="ui-label">In 1 hour</span></li>
+        <li><span class="ui-label">In 1 day</span></li>
+      </ul>
+
+      <h2>Повтор (Repeat)</h2>
+      <ul>
+        <li><span class="ui-label">No repeat</span></li>
+        <li><span class="ui-label">Daily</span> — после Done: копия с deadline +1 день</li>
+        <li><span class="ui-label">Weekly</span> — после Done: копия с deadline +7 дней</li>
+        <li><span class="ui-label">Monthly</span> — после Done: копия с deadline +1 календарный месяц (день обрезается до конца месяца)</li>
+      </ul>
+      <p>Те же title, assignee, priority, тип Personal/Family. Статус новой — To Do. В detail виден label повтора. При edit можно сменить или выключить.</p>
+      <div class="tip warn">
+        <strong>Заметка:</strong> Undo Done не удаляет уже созданную следующую копию.
+      </div>
+      <div class="tip warn">
+        <strong>Только локально:</strong> срабатывают на этом устройстве при разрешённых уведомлениях.
+        Done отменяет reminder.
+      </div>
+
+      <h2>Карточка задачи</h2>
+      <div class="callout">
+        <div class="num">2</div>
+        <div class="body">
+          <strong>Тап по строке</strong>
+          <span>Открывается <span class="ui-label">Task details</span>.</span>
+        </div>
+      </div>
+      <ul>
+        <li>Карандаш — редактирование (если вы создатель)</li>
+        <li>Быстрый статус — при Done есть <span class="ui-label">Undo</span></li>
+        <li>Корзина — удаление с подтверждением</li>
+      </ul>
+      <div class="tip">
+        <strong>Права:</strong> исполнитель обычно меняет только статус.
+        В деталях, если нельзя edit — баннер
+        <span class="ui-label">Only the creator can edit this task</span>.
+      </div>
+
+      <div class="pager">
+        <a href="02-tasks.html">← Список задач</a>
+        <a href="04-family.html">Далее: Семья →</a>
+      </div>
+    </main>
+    <script src="../assets/lang.js"></script>
+  </body>
+</html>
