@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:family_tasks/core/firebase/firestore_errors.dart';
 import 'package:family_tasks/features/tasks/data/task_local_storage.dart';
 import 'package:family_tasks/features/tasks/domain/task.dart';
 import 'package:family_tasks/features/tasks/domain/task_permissions.dart';
@@ -83,7 +84,8 @@ class TaskRepository {
           _memoryTasks[cacheKey] = List<Task>.from(tasks);
           await _localStorage?.saveTasks(cacheKey, tasks);
           return tasks;
-        });
+        })
+        .ignoreFirestoreAuthLoss();
   }
 
   Future<Task?> getTask({

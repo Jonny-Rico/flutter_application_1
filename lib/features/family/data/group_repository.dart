@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:family_tasks/core/constants/app_constants.dart';
+import 'package:family_tasks/core/firebase/firestore_errors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:family_tasks/features/family/domain/family_group.dart';
 import 'package:family_tasks/features/family/domain/group_invite.dart';
@@ -83,7 +84,7 @@ class GroupRepository {
     return _userRef(userId).snapshots().map((doc) {
       if (!doc.exists) return null;
       return UserProfile.fromFirestore(doc);
-    });
+    }).ignoreFirestoreAuthLoss();
   }
 
   Future<UserProfile?> getUserProfile(String userId) async {
@@ -96,7 +97,7 @@ class GroupRepository {
     return _groupRef(groupId).snapshots().map((doc) {
       if (!doc.exists) return null;
       return FamilyGroup.fromFirestore(doc);
-    });
+    }).ignoreFirestoreAuthLoss();
   }
 
   Stream<List<GroupMember>> watchMembers(String groupId) {
@@ -106,7 +107,8 @@ class GroupRepository {
         .map(
           (snapshot) =>
               snapshot.docs.map(GroupMember.fromFirestore).toList(),
-        );
+        )
+        .ignoreFirestoreAuthLoss();
   }
 
   void _requireVerifiedEmail() {
@@ -222,7 +224,7 @@ class GroupRepository {
         if (invite.isValid) return invite;
       }
       return invites.first;
-    });
+    }).ignoreFirestoreAuthLoss();
   }
 
   Future<void> joinGroup({

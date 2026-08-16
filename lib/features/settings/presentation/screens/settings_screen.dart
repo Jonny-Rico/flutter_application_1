@@ -224,6 +224,7 @@ class SettingsScreen extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: OutlinedButton.icon(
+              key: const ValueKey('sign-out-button'),
               onPressed: isSigningOut || user == null
                   ? null
                   : () => _signOut(context, ref),
