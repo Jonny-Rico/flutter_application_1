@@ -85,6 +85,12 @@ jobs:
 
       - name: Run e2e
         uses: reactivecircus/android-emulator-runner@v2
+        env:
+          QA_A_EMAIL: ${{ secrets.QA_A_EMAIL }}
+          QA_A_PASSWORD: ${{ secrets.QA_A_PASSWORD }}
+          QA_B_EMAIL: ${{ secrets.QA_B_EMAIL }}
+          QA_B_PASSWORD: ${{ secrets.QA_B_PASSWORD }}
+          TEST_NAME: ${{ github.event_name == 'schedule' && '' || inputs.test_name }}
         with:
           api-level: 34
           arch: x86_64
@@ -92,19 +98,4 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: |
-            NAME_FILTER='${{ github.event.inputs.test_name }}'
-            if [ '${{ github.event_name }}' = 'schedule' ] || [ -z "$NAME_FILTER" ]; then
-              flutter test integration_test/smoke_test.dart -d emulator-5554 \
-                --dart-define=QA_A_EMAIL='${{ secrets.QA_A_EMAIL }}' \
-                --dart-define=QA_A_PASSWORD='${{ secrets.QA_A_PASSWORD }}' \
-                --dart-define=QA_B_EMAIL='${{ secrets.QA_B_EMAIL }}' \
-                --dart-define=QA_B_PASSWORD='${{ secrets.QA_B_PASSWORD }}'
-            else
-              flutter test integration_test/smoke_test.dart -d emulator-5554 \
-                --name "$NAME_FILTER" \
-                --dart-define=QA_A_EMAIL='${{ secrets.QA_A_EMAIL }}' \
-                --dart-define=QA_A_PASSWORD='${{ secrets.QA_A_PASSWORD }}' \
-                --dart-define=QA_B_EMAIL='${{ secrets.QA_B_EMAIL }}' \
-                --dart-define=QA_B_PASSWORD='${{ secrets.QA_B_PASSWORD }}'
-            fi
+          script: bash tool/ci_e2e.sh
