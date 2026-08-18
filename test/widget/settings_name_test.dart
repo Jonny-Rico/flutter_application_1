@@ -7,7 +7,9 @@ import 'package:family_tasks/features/family/domain/user_profile.dart';
 import 'package:family_tasks/features/family/presentation/providers/family_providers.dart';
 import 'package:family_tasks/features/settings/presentation/screens/settings_screen.dart';
 import 'package:family_tasks/features/tasks/data/task_local_storage.dart';
+import 'package:family_tasks/features/tasks/presentation/providers/task_providers.dart';
 import 'package:flutter/material.dart';
+import '../helpers/fake_notification_scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -72,6 +74,9 @@ void main() {
           hasPasswordProviderProvider.overrideWith((ref) => true),
           authRepositoryProvider.overrideWithValue(authRepo),
           groupRepositoryProvider.overrideWithValue(_FakeGroupRepository()),
+          taskNotificationSchedulerProvider.overrideWithValue(
+            FakeNotificationScheduler(),
+          ),
         ],
         child: const MaterialApp(home: SettingsScreen()),
       ),
@@ -108,5 +113,36 @@ void main() {
 
     expect(authRepo.lastName, 'Alex QA');
     expect(find.text('Name updated'), findsOneWidget);
+  });
+
+  testWidgets('SET-P-02 / SET-P-03: remember and notify toggles flip', (
+    tester,
+  ) async {
+    await pumpSettings(tester);
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(SettingsScreen)),
+    );
+
+    expect(container.read(taskPersistFiltersProvider), isTrue);
+    await tester.tap(find.text('Remember task filters'));
+    await tester.pump();
+    expect(container.read(taskPersistFiltersProvider), isFalse);
+
+    expect(container.read(taskNotifyNewTasksProvider), isTrue);
+    await tester.tap(find.text('Notify about new tasks'));
+    await tester.pump();
+    expect(container.read(taskNotifyNewTasksProvider), isFalse);
+  });
+
+  testWidgets('SET-P-05: email user sees password linked and Google not linked', (
+    tester,
+  ) async {
+    await pumpSettings(tester);
+
+    expect(find.text('Email and password'), findsOneWidget);
+    expect(find.text('Linked · you can sign in with email'), findsOneWidget);
+    expect(find.text('Google'), findsOneWidget);
+    expect(find.text('Not linked'), findsOneWidget);
+    expect(find.text('Link'), findsOneWidget);
   });
 }
