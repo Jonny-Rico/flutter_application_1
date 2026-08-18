@@ -23,7 +23,6 @@ concurrency:
 jobs:
   emulator:
     name: Android emulator e2e
-    if: ${{ secrets.QA_A_PASSWORD != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     permissions:
@@ -53,6 +52,15 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Require QA secrets
+        env:
+          QA_A_PASSWORD: ${{ secrets.QA_A_PASSWORD }}
+        run: |
+          if [ -z "$QA_A_PASSWORD" ]; then
+            echo "Set QA_A_EMAIL / QA_A_PASSWORD / QA_B_EMAIL / QA_B_PASSWORD in repo Actions secrets."
+            exit 1
+          fi
 
       - name: AVD cache
         uses: actions/cache@v4
