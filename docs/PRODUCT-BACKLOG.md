@@ -518,10 +518,6 @@ Edit display name → still **Iteration 15 leftover** or later; not in this hard
 
 ---
 
-# Next step (when you say go)
+# Next step
 
-1. Confirm or change **D1–D6**.  
-2. Start **Iteration 7** implementation only.  
-3. After 7: update QA cases, then 8.
-
-**Code freeze for this document:** plan only until you request implementation.
+Iterations 7–16 in this document are implemented and pushed. The follow-up plan is `docs/ARCHITECTURE-BACKLOG.md` (iterations 17–21). Start there only when asked.

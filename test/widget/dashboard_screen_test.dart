@@ -83,6 +83,7 @@ void main() {
   testWidgets('DASH-P-01: My overview shows counts', (tester) async {
     await pumpDashboard(tester, profile: solo);
 
+    expect(find.byKey(const ValueKey('account-menu')), findsOneWidget);
     expect(find.text('My'), findsOneWidget);
     expect(find.text('Total'), findsOneWidget);
     expect(find.text('2'), findsWidgets);

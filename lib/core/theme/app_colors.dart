@@ -7,6 +7,8 @@ abstract final class AppColors {
   static const surfaceElevated = Color(0xFF232D3B);
   static const onSurfaceMuted = Color(0xFF94A3B8);
   static const accentWarm = Color(0xFFFBBF24);
+  static const accentPlan = Color(0xFFC4B5FD);
+  static const accentMine = Color(0xFF7DD3FC);
   static const success = Color(0xFF34D399);
   static const warning = Color(0xFFF59E0B);
   /// Slightly brighter than pure red-400 for overdue/danger on dark surfaces.

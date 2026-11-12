@@ -7,8 +7,15 @@ import 'package:family_tasks/features/dashboard/presentation/screens/dashboard_s
 import 'package:family_tasks/features/family/presentation/screens/family_screen.dart';
 import 'package:family_tasks/features/family/presentation/screens/invite_member_screen.dart';
 import 'package:family_tasks/features/help/presentation/screens/help_screen.dart';
+import 'package:family_tasks/features/notes/presentation/screens/note_editor_screen.dart';
+import 'package:family_tasks/features/notes/presentation/screens/notes_list_screen.dart';
 import 'package:family_tasks/features/settings/presentation/screens/settings_screen.dart';
 import 'package:family_tasks/features/shell/presentation/screens/main_shell_screen.dart';
+import 'package:family_tasks/features/shop/presentation/screens/need_list_screen.dart';
+import 'package:family_tasks/features/shop/presentation/screens/personal_list_screen.dart';
+import 'package:family_tasks/features/shop/presentation/screens/plans_list_screen.dart';
+import 'package:family_tasks/features/shop/presentation/screens/shop_hub_screen.dart';
+import 'package:family_tasks/features/shop/presentation/screens/shop_trip_screen.dart';
 import 'package:family_tasks/features/tasks/presentation/screens/task_detail_screen.dart';
 import 'package:family_tasks/features/tasks/presentation/screens/task_form_screen.dart';
 import 'package:family_tasks/features/tasks/presentation/screens/tasks_screen.dart';
@@ -18,11 +25,11 @@ import 'package:go_router/go_router.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 final _shellNavigatorTasksKey = GlobalKey<NavigatorState>(debugLabel: 'tasks');
+final _shellNavigatorShopKey = GlobalKey<NavigatorState>(debugLabel: 'shop');
 final _shellNavigatorFamilyKey = GlobalKey<NavigatorState>(debugLabel: 'family');
 final _shellNavigatorDashboardKey =
     GlobalKey<NavigatorState>(debugLabel: 'dashboard');
-final _shellNavigatorSettingsKey =
-    GlobalKey<NavigatorState>(debugLabel: 'settings');
+final _shellNavigatorNotesKey = GlobalKey<NavigatorState>(debugLabel: 'notes');
 
 final routerRefreshNotifierProvider = Provider<RouterRefreshNotifier>((ref) {
   final notifier = RouterRefreshNotifier();
@@ -67,6 +74,18 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.login,
         builder: (context, state) => const LoginScreen(),
       ),
+      GoRoute(
+        path: AppRoutes.settings,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const SettingsScreen(),
+        routes: [
+          GoRoute(
+            path: 'help',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => const HelpScreen(),
+          ),
+        ],
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return MainShellScreen(navigationShell: navigationShell);
@@ -105,6 +124,40 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
           StatefulShellBranch(
+            navigatorKey: _shellNavigatorShopKey,
+            routes: [
+              GoRoute(
+                path: AppRoutes.shop,
+                builder: (context, state) => const ShopHubScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'need',
+                    parentNavigatorKey: _rootNavigatorKey,
+                    builder: (context, state) => const NeedListScreen(),
+                  ),
+                  GoRoute(
+                    path: 'plans',
+                    parentNavigatorKey: _rootNavigatorKey,
+                    builder: (context, state) => const PlansListScreen(),
+                  ),
+                  GoRoute(
+                    path: 'personal',
+                    parentNavigatorKey: _rootNavigatorKey,
+                    builder: (context, state) => const PersonalListScreen(),
+                  ),
+                  GoRoute(
+                    path: 'trip/:id',
+                    parentNavigatorKey: _rootNavigatorKey,
+                    builder: (context, state) {
+                      final id = state.pathParameters['id']!;
+                      return ShopTripScreen(tripId: id);
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
             navigatorKey: _shellNavigatorFamilyKey,
             routes: [
               GoRoute(
@@ -130,16 +183,19 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: _shellNavigatorSettingsKey,
+            navigatorKey: _shellNavigatorNotesKey,
             routes: [
               GoRoute(
-                path: AppRoutes.settings,
-                builder: (context, state) => const SettingsScreen(),
+                path: AppRoutes.notes,
+                builder: (context, state) => const NotesListScreen(),
                 routes: [
                   GoRoute(
-                    path: 'help',
+                    path: ':id',
                     parentNavigatorKey: _rootNavigatorKey,
-                    builder: (context, state) => const HelpScreen(),
+                    builder: (context, state) {
+                      final id = state.pathParameters['id']!;
+                      return NoteEditorScreen(noteId: id);
+                    },
                   ),
                 ],
               ),

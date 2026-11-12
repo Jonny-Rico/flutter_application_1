@@ -9,6 +9,7 @@ import 'package:family_tasks/features/tasks/presentation/providers/task_provider
 import 'package:family_tasks/features/tasks/presentation/utils/task_done_actions.dart';
 import 'package:family_tasks/features/tasks/presentation/utils/task_filter_actions.dart';
 import 'package:family_tasks/features/tasks/presentation/widgets/task_card.dart';
+import 'package:family_tasks/shared/widgets/root_app_bar.dart';
 import 'package:family_tasks/shared/widgets/empty_state.dart';
 import 'package:family_tasks/shared/widgets/skeleton.dart';
 import 'package:flutter/material.dart';
@@ -75,8 +76,8 @@ class _TasksScreenState extends ConsumerState<TasksScreen> {
     final currentUserId = ref.watch(authStateProvider).valueOrNull?.uid;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tasks'),
+      appBar: RootAppBar(
+        title: 'Tasks',
         actions: [
           IconButton(
             tooltip: _searchOpen ? 'Close search' : 'Search',

@@ -86,13 +86,14 @@ Future<void> tapNavTab(WidgetTester tester, String label) async {
   await waitFor(tester, bar);
   final index = switch (label) {
     'Tasks' => 0,
-    'Family' => 1,
-    'Dashboard' => 2,
-    'Settings' => 3,
+    'Shop' => 1,
+    'Family' => 2,
+    'Dashboard' => 3,
+    'Notes' => 4,
     _ => throw ArgumentError.value(label, 'label'),
   };
   final rect = tester.getRect(bar);
-  final slot = rect.width / 4;
+  final slot = rect.width / 5;
   await tester.tapAt(Offset(rect.left + slot * (index + 0.5), rect.center.dy));
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 800));

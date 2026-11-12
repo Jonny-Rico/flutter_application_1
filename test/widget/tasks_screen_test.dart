@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../helpers/fake_auth_repository.dart';
 import '../helpers/fake_auth_user.dart';
 import '../helpers/task_fixtures.dart';
 
@@ -56,9 +57,31 @@ Future<void> pumpTasks(
 }
 
 void main() {
+  testWidgets('account menu logs out and offers Settings', (tester) async {
+    final auth = FakeAuthRepository();
+    await pumpTasks(
+      tester,
+      extra: [authRepositoryProvider.overrideWithValue(auth)],
+    );
+
+    await tester.tap(find.byKey(const ValueKey('account-menu')));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Log Out'), findsOneWidget);
+    expect(find.text('Settings'), findsOneWidget);
+    expect(find.byIcon(Icons.logout_rounded), findsOneWidget);
+    expect(find.byIcon(Icons.settings_outlined), findsOneWidget);
+
+    await tester.tap(find.text('Log Out'));
+    await tester.pumpAndSettle();
+
+    expect(auth.signOutCount, 1);
+  });
+
   testWidgets('FILT-P-01: status filter To Do / Done / All', (tester) async {
     await pumpTasks(tester);
 
+    expect(find.byKey(const ValueKey('account-menu')), findsOneWidget);
     expect(find.text('Take out trash'), findsOneWidget);
     expect(find.text('Wash dishes'), findsOneWidget);
 

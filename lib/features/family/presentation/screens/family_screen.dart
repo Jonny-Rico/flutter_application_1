@@ -10,6 +10,7 @@ import 'package:family_tasks/features/family/presentation/providers/family_provi
 import 'package:family_tasks/features/family/presentation/utils/family_onboarding.dart';
 import 'package:family_tasks/features/family/presentation/widgets/member_tile.dart';
 import 'package:family_tasks/shared/widgets/empty_state.dart';
+import 'package:family_tasks/shared/widgets/root_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -24,8 +25,8 @@ class FamilyScreen extends ConsumerWidget {
     final membersAsync = ref.watch(groupMembersProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Family Group'),
+      appBar: RootAppBar(
+        title: 'Family Group',
         actions: [
           if (profileAsync.valueOrNull?.isOwner ?? false)
             IconButton(

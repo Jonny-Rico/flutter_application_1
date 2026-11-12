@@ -21,7 +21,7 @@ Passwords: `QA/test-accounts.local.md` (not in git).
 
 ## 0. Smoke pack (P0)
 
-`AUTH-P-01` `AUTH-P-02` `AUTH-P-03` `TASK-P-01` `TASK-P-04` `TASK-N-01` `FILT-P-01` `FAM-P-01` `FAM-P-03` `FAM-N-01` `PERM-N-01` `LOCK-P-02` `SET-P-01`
+`AUTH-P-01` `AUTH-P-02` `AUTH-P-03` `TASK-P-01` `TASK-P-04` `TASK-N-01` `FILT-P-01` `FAM-P-01` `FAM-P-03` `FAM-N-01` `PERM-N-01` `LOCK-P-02` `SET-P-01` `SHOP-P-01` `NOTE-P-01`
 
 ---
 
@@ -34,7 +34,7 @@ Pre: signed out.
 | # | Step | Expected |
 |---|------|----------|
 | 1 | Open app | Login: **Sign in with Google**, **Sign in with email**, **Create account** |
-| 2 | **Sign in with email** → A email/password → **Sign in** | **Tasks**; nav: Tasks, Family, Dashboard, Settings |
+| 2 | **Sign in with email** → A email/password → **Sign in** | **Tasks**; nav: Tasks, Shop, Family, Dash, Notes. Menu on the left opens Settings |
 
 ### AUTH-P-02 · Session after kill
 **P0 · Session**  
@@ -51,7 +51,7 @@ Pre: A signed in.
 
 | # | Step | Expected |
 |---|------|----------|
-| 1 | Settings → **Sign out** | Login |
+| 1 | Menu → **Log Out** | Login |
 | 2 | Kill + open | Still Login |
 
 ### AUTH-P-04 · Switch A → B
@@ -505,7 +505,8 @@ Pre: A signed in.
 
 | # | Step | Expected |
 |---|------|----------|
-| 1 | Pencil → new name (≥2) → Save | Settings + Family members show new name |
+| 1 | On Tasks, tap the menu on the left → **Settings** | Settings |
+| 2 | Pencil → new name (≥2) → Save | Settings + Family members show new name |
 
 ### SET-P-02 · Remember filters ON/OFF
 **P1**  
@@ -560,11 +561,63 @@ A creates task for self → A does not get “new task” alert.
 
 ### STAB-P-01 · Rapid tab switching
 **P2**  
-Hammer Tasks/Family/Dashboard/Settings → no crash.
+Hammer Tasks/Shop/Family/Dash/Notes → no crash. Menu on each root screen opens Settings.
 
 ### STAB-N-01 · Offline create
 **P2 · Negative**  
 Airplane → create task: offline handling or error; no crash. Sync when back if applicable.
+
+---
+
+## 14. Shop
+
+### SHOP-P-01 · Hub and a Need item
+**P0**  
+Pre: A signed in.
+
+| # | Step | Expected |
+|---|------|----------|
+| 1 | Open **Shop** | Need, trip, Plans, and Personal cards |
+| 2 | **Add** → **Add to Need** → `Milk` → **Add** | Need count includes the new item. Open the Need list and see Milk |
+
+### SHOP-P-02 · Trip check
+**P0**  
+Pre: Need list has at least one open item (SHOP-P-01).
+
+| # | Step | Expected |
+|---|------|----------|
+| 1 | **Add** → **Start a trip** → keep a store → **Create trip** | Trip screen lists the selected items |
+| 2 | Check one item | That row is bought. Need list is unchanged until the trip ends |
+
+---
+
+## 15. Notes
+
+### NOTE-P-01 · Text note
+**P0**  
+Pre: A signed in.
+
+| # | Step | Expected |
+|---|------|----------|
+| 1 | **Notes** → **New note** → **Text note** | Editor opens |
+| 2 | Type a title and a line of body, then go back | The note is in the list |
+
+### NOTE-P-02 · Share to a member
+**P0**  
+Pre: A and B are in the same family. A has a non-empty note (NOTE-P-01).
+
+| # | Step | Expected |
+|---|------|----------|
+| 1 | A long-presses the note → **Share** → B | Snackbar **Copied to** B’s name |
+| 2 | Sign in as B → **Notes** | B sees a copy. A’s original is still in A’s list |
+
+### NOTE-N-01 · Share an empty note
+**P1 · Negative**  
+Pre: A opens a new text note and does not type.
+
+| # | Step | Expected |
+|---|------|----------|
+| 1 | Back to the list → long-press that note → **Share** | **Nothing to share**. No copy is created |
 
 ---
 
@@ -585,9 +638,11 @@ Airplane → create task: offline handling or error; no crash. Sync when back if
 | Settings | 5 | 2 | 7 |
 | Notifications | 2 | 2 | 4 |
 | Stability | 1 | 1 | 2 |
-| **Sum** | **42** | **30** | **72** |
+| Shop | 2 | 0 | 2 |
+| Notes | 2 | 1 | 3 |
+| **Sum** | **46** | **31** | **77** |
 
-Smoke P0: 13 cases.
+Smoke P0: 15 cases.
 
 ---
 
@@ -608,7 +663,7 @@ Smoke P0: 13 cases.
 | IDs | Layer |
 |-----|--------|
 | AUTH-N-03, TASK-N-01, SET-N-01, REC dates, PERM canDelete/canEdit | **unit** (and widget where UI) |
-| AUTH-P-01…04, AUTH-N-01/02/04/05, LOCK-*, HELP-*, TASK-*, FILT-* (single user), SET-*, DASH-N-*, VER-N-* (fake user), STAB-P-01 | **widget** with fakes |
+| AUTH-P-01…04, AUTH-N-01/02/04/05, LOCK-*, HELP-*, TASK-*, FILT-* (single user), SET-*, DASH-N-*, VER-N-* (fake user), STAB-P-01, SHOP-*, NOTE-* | **widget** with fakes |
 | AUTH-P-01/02/03/04, FAM-P-01…06, FAM-N-01/02/03, PERM-*, FILT-N-02, DASH-P-*, NOTIF-P-02 / N-* (scheduler spy or e2e), STAB-N-01 | **e2e** on emulator |
 
 Many IDs have **both** widget (fast) and e2e (one smoke). **100% = every ID has ≥1 automated test.** Prefer widget; e2e only when two users or process kill or real Auth.

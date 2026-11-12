@@ -32,6 +32,13 @@ service cloud.firestore {
         get(/databases/$(database)/documents/groups/$(groupId)).data.ownerId == request.auth.uid;
     }
 
+    function sameFamilyAs(otherUserId) {
+      return get(/databases/$(database)/documents/users/$(otherUserId)).data.groupId != null &&
+        userGroupId() != null &&
+        get(/databases/$(database)/documents/users/$(otherUserId)).data.groupId == userGroupId() &&
+        isGroupMember(userGroupId());
+    }
+
     function isTaskCreator() {
       return resource.data.createdBy == request.auth.uid;
     }
@@ -80,6 +87,44 @@ service cloud.firestore {
           isTaskCreator() || isGroupOwner(groupId)
         );
       }
+
+      match /needItems/{itemId} {
+        allow read, write: if isGroupMember(groupId);
+      }
+
+      match /shopTrips/{tripId} {
+        allow read, write: if isGroupMember(groupId);
+      }
+
+      match /planItems/{itemId} {
+        allow read, write: if isGroupMember(groupId);
+      }
+    }
+
+    match /users/{userId}/needItems/{itemId} {
+      allow read, write: if isSelf(userId);
+    }
+
+    match /users/{userId}/shopTrips/{tripId} {
+      allow read, write: if isSelf(userId);
+    }
+
+    match /users/{userId}/planItems/{itemId} {
+      allow read, write: if isSelf(userId);
+    }
+
+    match /users/{userId}/personalItems/{itemId} {
+      allow read, write: if isSelf(userId);
+    }
+
+    match /users/{userId}/notes/{noteId} {
+      allow read, update, delete: if isSelf(userId);
+      allow create: if isSelf(userId) || (
+        signedIn() &&
+        sameFamilyAs(userId) &&
+        request.resource.data.sharedBy == request.auth.uid &&
+        request.resource.data.ownerId == userId
+      );
     }
 
     match /users/{userId}/tasks/{taskId} {

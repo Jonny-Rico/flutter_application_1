@@ -27,6 +27,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    expect(find.byKey(const ValueKey('account-menu')), findsOneWidget);
+    expect(find.byIcon(Icons.settings_outlined), findsNothing);
     expect(find.text('Verify email to use Family'), findsOneWidget);
     expect(find.text('Create as owner'), findsNothing);
     expect(find.text('Join with code'), findsNothing);

@@ -9,6 +9,7 @@ import 'package:family_tasks/features/dashboard/presentation/widgets/breakdown_l
 import 'package:family_tasks/features/dashboard/presentation/widgets/completion_card.dart';
 import 'package:family_tasks/features/dashboard/presentation/widgets/dashboard_section.dart';
 import 'package:family_tasks/features/dashboard/presentation/widgets/member_activity_list.dart';
+import 'package:family_tasks/shared/widgets/root_app_bar.dart';
 import 'package:family_tasks/features/dashboard/presentation/widgets/stat_grid.dart';
 import 'package:family_tasks/features/dashboard/presentation/widgets/weekly_trend_chart.dart';
 import 'package:family_tasks/features/auth/presentation/providers/auth_providers.dart';
@@ -52,8 +53,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
         ref.watch(userProfileProvider).valueOrNull?.hasGroup ?? false;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
+      appBar: RootAppBar(
+        title: 'Dashboard',
         bottom: TabBar(
           controller: _tabController,
           tabs: const [

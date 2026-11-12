@@ -10,6 +10,7 @@ class FakeAuthRepository extends Fake implements AuthRepository {
   AuthException? registerError;
   String? lastResetEmail;
   String? lastDisplayName;
+  int signOutCount = 0;
 
   @override
   Future<UserCredential> signInWithEmail({
@@ -40,5 +41,10 @@ class FakeAuthRepository extends Fake implements AuthRepository {
   @override
   Future<void> updateDisplayName(String displayName) async {
     lastDisplayName = displayName;
+  }
+
+  @override
+  Future<void> signOut() async {
+    signOutCount++;
   }
 }
